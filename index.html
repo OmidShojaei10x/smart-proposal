@@ -3,1374 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سیستم هوشمند پروپوزال | پروپوزال حرفه‌ای در ۱ روز به جای ۷ روز</title>
-    <meta name="description" content="سیستم هوشمند تولید پروپوزال با هوش مصنوعی - کاهش ۸۵٪ زمان تیم فروش و افزایش ۴۰٪ نرخ تبدیل">
+    <title>سیستم هوشمند پروپوزال | امید شجاعی</title>
+    <meta name="description" content="سیستم هوشمند تولید پروپوزال که زمان تیم فروش رو از 7 روز به 1 روز کاهش می‌ده.">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Vazirmatn Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
     <style>
-        * {
+        body {
             font-family: 'Vazirmatn', sans-serif;
         }
-        
         .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(to left, #2563eb, #9333ea);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .gradient-bg-2 {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-        
-        .hero-pattern {
-            background-color: #0f172a;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23667eea' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
-        }
-        
-        .counter {
-            transition: all 0.5s ease;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .pricing-popular {
-            transform: scale(1.05);
-        }
-        
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .sticky-cta {
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .sticky-cta.visible {
-            transform: translateY(0);
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 4px;
-        }
-        
-        .typing-effect::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(37, 99, 235, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
         }
     </style>
 </head>
-<body class="bg-slate-900 text-white">
-    
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">SmartProposal</span>
+                </div>
+                <div class="hidden md:flex space-x-12 space-x-reverse items-center">
+                    <a href="#problem" class="text-slate-600 hover:text-blue-600 transition">چرا ما؟</a>
+                    <a href="#features" class="text-slate-600 hover:text-blue-600 transition">ویژگی‌ها</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-blue-600 transition">قیمت‌ها</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-medium shadow-lg shadow-blue-600/20 mr-8">دریافت مشاوره رایگان</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
-                    </div>
-                    <span class="font-bold text-xl">پروپوزال هوشمند</span>
+                    </button>
                 </div>
-                
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#features" class="text-slate-300 hover:text-white transition">ویژگی‌ها</a>
-                    <a href="#how-it-works" class="text-slate-300 hover:text-white transition">نحوه کار</a>
-                    <a href="#pricing" class="text-slate-300 hover:text-white transition">قیمت‌ها</a>
-                    <a href="#about" class="text-slate-300 hover:text-white transition">درباره ما</a>
-                    <a href="#contact" class="gradient-bg px-6 py-2 rounded-full font-medium hover:opacity-90 transition">تحلیل رایگان</a>
-                </div>
-                
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
             </div>
         </div>
-        
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#features" class="block text-slate-300 hover:text-white py-2">ویژگی‌ها</a>
-                <a href="#how-it-works" class="block text-slate-300 hover:text-white py-2">نحوه کار</a>
-                <a href="#pricing" class="block text-slate-300 hover:text-white py-2">قیمت‌ها</a>
-                <a href="#about" class="block text-slate-300 hover:text-white py-2">درباره ما</a>
-                <a href="#contact" class="gradient-bg block text-center px-6 py-3 rounded-full font-medium">تحلیل رایگان</a>
-            </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 p-4">
+            <a href="#problem" class="block py-2 text-slate-600">چرا ما؟</a>
+            <a href="#features" class="block py-2 text-slate-600">ویژگی‌ها</a>
+            <a href="#pricing" class="block py-2 text-slate-600">قیمت‌ها</a>
+            <a href="#contact" class="block py-2 mt-2 text-blue-600 font-bold">دریافت مشاوره رایگان</a>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="hero-pattern min-h-screen flex items-center pt-16 relative overflow-hidden">
-        <!-- Floating Elements -->
-        <div class="absolute top-20 right-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl float-animation"></div>
-        <div class="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl float-animation" style="animation-delay: -3s;"></div>
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="blob top-0 right-0"></div>
+        <div class="blob bottom-0 left-0 translate-y-1/2"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-right">
-                    <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 bg-slate-800/50 backdrop-blur border border-slate-700 rounded-full px-4 py-2 mb-6">
-                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                        <span class="text-sm text-slate-300">مورد اعتماد +۵۰ شرکت در ایران</span>
-                    </div>
-                    
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
-                        پروپوزال حرفه‌ای در
-                        <span class="gradient-text"> ۱ روز</span>
-                        <br>
-                        به جای
-                        <span class="text-red-400 line-through decoration-4">۷ روز</span>
-                    </h1>
-                    
-                    <p class="text-xl text-slate-300 mb-8 leading-relaxed">
-                        با سیستم هوشمند تولید پروپوزال مبتنی بر هوش مصنوعی،
-                        <br class="hidden sm:block">
-                        زمان تیم فروش خود را <strong class="text-white">۸۵٪ کاهش</strong> دهید
-                    </p>
-                    
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                        <a href="#contact" class="gradient-bg px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition pulse-glow inline-flex items-center justify-center gap-2">
-                            <span>تحلیل رایگان فرآیند فروش شما</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                            </svg>
-                        </a>
-                        <a href="#demo" class="border border-slate-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition inline-flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>مشاهده دمو</span>
-                        </a>
-                    </div>
-                    
-                    <!-- Trust Indicators -->
-                    <div class="flex flex-wrap gap-6 justify-center lg:justify-start text-sm text-slate-400">
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>بدون نیاز به کارت اعتباری</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>ضمانت بازگشت وجه</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>پشتیبانی ۲۴/۷</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Hero Image/Illustration -->
-                <div class="relative">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 border border-slate-700 shadow-2xl">
-                        <!-- Mock Dashboard -->
-                        <div class="bg-slate-900 rounded-2xl p-6 mb-4">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                                <span class="text-slate-500 text-sm mr-4">پروپوزال‌ساز هوشمند</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center text-sm">🎯</div>
-                                    <div class="flex-1 h-3 bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="w-4/5 h-full gradient-bg animate-pulse"></div>
-                                    </div>
-                                    <span class="text-green-400 text-sm font-bold">۸۵٪</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-sm">⚡</div>
-                                    <div class="flex-1 h-3 bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="w-3/4 h-full bg-blue-500 animate-pulse"></div>
-                                    </div>
-                                    <span class="text-blue-400 text-sm font-bold">۷x سریع‌تر</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-sm">📈</div>
-                                    <div class="flex-1 h-3 bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="w-2/3 h-full bg-purple-500 animate-pulse"></div>
-                                    </div>
-                                    <span class="text-purple-400 text-sm font-bold">+۴۰٪ تبدیل</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Stats Cards -->
-                        <div class="grid grid-cols-3 gap-3">
-                            <div class="bg-slate-800/50 rounded-xl p-3 text-center">
-                                <div class="text-2xl font-black gradient-text counter" data-target="144">۰</div>
-                                <div class="text-xs text-slate-400">میلیون صرفه‌جویی سالانه</div>
-                            </div>
-                            <div class="bg-slate-800/50 rounded-xl p-3 text-center">
-                                <div class="text-2xl font-black text-blue-400 counter" data-target="85">۰</div>
-                                <div class="text-xs text-slate-400">٪ کاهش زمان</div>
-                            </div>
-                            <div class="bg-slate-800/50 rounded-xl p-3 text-center">
-                                <div class="text-2xl font-black text-green-400 counter" data-target="40">۰</div>
-                                <div class="text-xs text-slate-400">٪ افزایش کیفیت</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Floating Badge -->
-                    <div class="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
-                        ✨ جدید!
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </div>
-    </section>
-    
-    <!-- Problem Section -->
-    <section class="py-20 bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-red-400 font-medium mb-4 block">❌ مشکلی که هر روز باهاش درگیرید</span>
-                <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                    تیم فروش شما چقدر وقت صرف
-                    <span class="text-red-400">پروپوزال نویسی</span>
-                    می‌کنه؟
-                </h2>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-8 border border-blue-100">
+                <span class="flex h-2 w-2 relative ml-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                مخصوص تیم‌های فروش B2B شرکت‌های بزرگ
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-slate-900/50 border border-red-500/20 rounded-2xl p-6 text-center card-hover scroll-reveal">
-                    <div class="text-5xl font-black text-red-400 mb-2">۵-۷</div>
-                    <div class="text-slate-300">روز برای هر پروپوزال</div>
-                </div>
-                <div class="bg-slate-900/50 border border-red-500/20 rounded-2xl p-6 text-center card-hover scroll-reveal" style="transition-delay: 0.1s;">
-                    <div class="text-5xl font-black text-red-400 mb-2">۳-۴</div>
-                    <div class="text-slate-300">نفر درگیر در فرآیند</div>
-                </div>
-                <div class="bg-slate-900/50 border border-red-500/20 rounded-2xl p-6 text-center card-hover scroll-reveal" style="transition-delay: 0.2s;">
-                    <div class="text-5xl font-black text-red-400 mb-2">۱۵</div>
-                    <div class="text-slate-300">میلیون هزینه ماهانه</div>
-                </div>
-                <div class="bg-slate-900/50 border border-red-500/20 rounded-2xl p-6 text-center card-hover scroll-reveal" style="transition-delay: 0.3s;">
-                    <div class="text-5xl font-black text-red-400 mb-2">۳۰٪</div>
-                    <div class="text-slate-300">فرصت‌های از دست رفته</div>
-                </div>
-            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+                پروپوزال حرفه‌ای در <span class="text-blue-600">۱ روز</span> <br class="hidden md:block" />
+                به جای <span class="text-red-500 line-through decoration-4 decoration-red-500/30">۷ روز</span>
+            </h1>
             
-            <div class="mt-12 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-2xl p-8 scroll-reveal">
-                <div class="flex flex-col md:flex-row items-center gap-6">
-                    <div class="text-6xl">😤</div>
-                    <div class="flex-1 text-center md:text-right">
-                        <h3 class="text-xl font-bold mb-2">آیا این سناریو برایتان آشناست؟</h3>
-                        <p class="text-slate-300">
-                            مشتری منتظره، تیم فروش درگیر جمع‌آوری اطلاعات، طراح داره روی ظاهر کار می‌کنه، 
-                            مدیر فنی باید تایید کنه... و در نهایت یا پروپوزال دیر آماده میشه یا کیفیتش پایینه!
-                        </p>
-                    </div>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 leading-relaxed mb-10">
+                سیستم هوشمند ما به تیم فروش شما کمک می‌کند تا زمان تولید پروپوزال را ۸۵٪ کاهش دهند و کیفیت خروجی را ۴۰٪ افزایش دهند. وقت تیم خود را صرف بستن قرارداد کنید، نه تایپ کردن.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-blue-600 text-white rounded-xl text-lg font-bold hover:bg-blue-700 transition shadow-xl shadow-blue-600/20 transform hover:-translate-y-1">
+                    تحلیل رایگان فرآیند فروش شما
+                </a>
+                <a href="#features" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl text-lg font-bold hover:bg-slate-50 transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    مشاهده دمو
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto border-t border-slate-200 pt-8">
+                <div>
+                    <div class="text-4xl font-bold text-slate-900 mb-1">۸۵٪</div>
+                    <div class="text-slate-500">کاهش زمان تهیه پروپوزال</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-slate-900 mb-1">۴۰٪</div>
+                    <div class="text-slate-500">افزایش نرخ تبدیل</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-slate-900 mb-1">۵۰+</div>
+                    <div class="text-slate-500">شرکت فعال</div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Solution Section -->
-    <section id="features" class="py-20">
+
+    <!-- Problem/Solution Section -->
+    <section id="problem" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-green-400 font-medium mb-4 block">✅ راه‌حل ما</span>
-                <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                    سیستم هوشمند پروپوزال با
-                    <span class="gradient-text">هوش مصنوعی</span>
-                </h2>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    یک سیستم یکپارچه که کل فرآیند تولید پروپوزال را اتوماتیک می‌کند
-                </p>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">آیا تیم فروش شما درگیر کاغذبازی است؟</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">تفاوت روش سنتی و سیستم هوشمند ما در بهره‌وری تیم شماست.</p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover scroll-reveal">
-                    <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                        🤖
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">تولید محتوای هوشمند</h3>
-                    <p class="text-slate-400">
-                        AI محتوای حرفه‌ای و متناسب با صنعت مشتری تولید می‌کند. بدون نیاز به نوشتن از صفر.
-                    </p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover scroll-reveal" style="transition-delay: 0.1s;">
-                    <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                        📐
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">تمپلیت‌های سفارشی</h3>
-                    <p class="text-slate-400">
-                        ده‌ها تمپلیت حرفه‌ای آماده که با برند شما هماهنگ می‌شوند. طراحی یکنواخت و حرفه‌ای.
-                    </p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover scroll-reveal" style="transition-delay: 0.2s;">
-                    <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                        ⚡
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">سرعت بی‌نظیر</h3>
-                    <p class="text-slate-400">
-                        پروپوزال کامل در کمتر از یک روز. پاسخ سریع‌تر به مشتری = نرخ برد بالاتر.
-                    </p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover scroll-reveal">
-                    <div class="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                        🔗
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">یکپارچگی با CRM</h3>
-                    <p class="text-slate-400">
-                        اتصال مستقیم به CRM شما. اطلاعات مشتری خودکار وارد پروپوزال می‌شود.
-                    </p>
-                </div>
-                
-                <!-- Feature 5 -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover scroll-reveal" style="transition-delay: 0.1s;">
-                    <div class="w-14 h-14 bg-yellow-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                        📊
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">گزارش‌گیری پیشرفته</h3>
-                    <p class="text-slate-400">
-                        ببینید کدام پروپوزال‌ها موفق‌ترند. تحلیل و بهینه‌سازی مستمر.
-                    </p>
-                </div>
-                
-                <!-- Feature 6 -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 card-hover scroll-reveal" style="transition-delay: 0.2s;">
-                    <div class="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center mb-6 text-2xl">
-                        🎓
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">آموزش و پشتیبانی</h3>
-                    <p class="text-slate-400">
-                        آموزش کامل تیم شما + پشتیبانی ۲۴ ساعته. هرگز تنها نمی‌مانید.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-blue-400 font-medium mb-4 block">🔄 فرآیند ساده</span>
-                <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                    چگونه کار می‌کند؟
-                </h2>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    در ۴ قدم ساده، پروپوزال حرفه‌ای خود را بسازید
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div class="relative scroll-reveal">
-                    <div class="bg-slate-900 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
-                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
-                            ۱
-                        </div>
-                        <h3 class="text-lg font-bold mb-3">اطلاعات مشتری را وارد کنید</h3>
-                        <p class="text-slate-400 text-sm">
-                            نام شرکت، صنعت، نیازها و بودجه را در فرم ساده وارد کنید
-                        </p>
-                    </div>
-                    <div class="hidden lg:block absolute top-1/2 -left-4 w-8 h-0.5 bg-gradient-to-l from-purple-500 to-transparent"></div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="relative scroll-reveal" style="transition-delay: 0.1s;">
-                    <div class="bg-slate-900 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
-                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
-                            ۲
-                        </div>
-                        <h3 class="text-lg font-bold mb-3">AI محتوا تولید می‌کند</h3>
-                        <p class="text-slate-400 text-sm">
-                            سیستم هوشمند محتوای متناسب با مشتری را در چند دقیقه آماده می‌کند
-                        </p>
-                    </div>
-                    <div class="hidden lg:block absolute top-1/2 -left-4 w-8 h-0.5 bg-gradient-to-l from-purple-500 to-transparent"></div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="relative scroll-reveal" style="transition-delay: 0.2s;">
-                    <div class="bg-slate-900 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
-                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
-                            ۳
-                        </div>
-                        <h3 class="text-lg font-bold mb-3">ویرایش و شخصی‌سازی</h3>
-                        <p class="text-slate-400 text-sm">
-                            محتوا را بررسی کنید، تغییرات لازم را اعمال کنید
-                        </p>
-                    </div>
-                    <div class="hidden lg:block absolute top-1/2 -left-4 w-8 h-0.5 bg-gradient-to-l from-purple-500 to-transparent"></div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="relative scroll-reveal" style="transition-delay: 0.3s;">
-                    <div class="bg-slate-900 rounded-2xl p-8 border border-slate-700 text-center relative z-10">
-                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
-                            ۴
-                        </div>
-                        <h3 class="text-lg font-bold mb-3">خروجی حرفه‌ای دریافت کنید</h3>
-                        <p class="text-slate-400 text-sm">
-                            PDF، Word یا لینک آنلاین پروپوزال آماده ارسال است
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Comparison -->
-            <div class="mt-16 grid md:grid-cols-2 gap-8 scroll-reveal">
-                <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-8">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-                        <span class="text-red-400">❌</span>
-                        روش سنتی
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Old Way -->
+                <div class="bg-red-50 p-8 rounded-2xl border border-red-100">
+                    <h3 class="text-xl font-bold text-red-700 mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        روش فعلی (سنتی)
                     </h3>
-                    <ul class="space-y-3 text-slate-300">
-                        <li class="flex items-center gap-3">
-                            <span class="text-red-400">✗</span>
-                            ۵ تا ۷ روز زمان‌بر
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-red-500 mt-1">✕</span>
+                            زمان آماده‌سازی: ۵ تا ۷ روز کاری
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-red-400">✗</span>
-                            درگیری ۳-۴ نفر
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-red-500 mt-1">✕</span>
+                            خطاهای انسانی در قیمت‌گذاری و نگارش
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-red-400">✗</span>
-                            کیفیت متغیر
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-red-500 mt-1">✕</span>
+                            فرمت‌های ناهماهنگ و ظاهر غیرحرفه‌ای
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-red-400">✗</span>
-                            خطای انسانی زیاد
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-red-400">✗</span>
-                            هزینه بالا
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-red-500 mt-1">✕</span>
+                            هزینه بالای حقوق تیم برای کارهای تکراری
                         </li>
                     </ul>
                 </div>
-                
-                <div class="bg-green-500/10 border border-green-500/20 rounded-2xl p-8">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-                        <span class="text-green-400">✅</span>
-                        با سیستم ما
+
+                <!-- New Way -->
+                <div class="bg-green-50 p-8 rounded-2xl border border-green-100 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 bg-green-500 text-white text-xs px-3 py-1 rounded-br-lg font-bold">پیشنهاد ما</div>
+                    <h3 class="text-xl font-bold text-green-700 mb-6 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        با سیستم هوشمند
                     </h3>
-                    <ul class="space-y-3 text-slate-300">
-                        <li class="flex items-center gap-3">
-                            <span class="text-green-400">✓</span>
-                            کمتر از ۱ روز
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-green-500 mt-1 font-bold">✓</span>
+                            زمان آماده‌سازی: کمتر از ۱ روز
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-green-400">✓</span>
-                            فقط ۱ نفر کافیست
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-green-500 mt-1 font-bold">✓</span>
+                            بدون خطا با استفاده از قالب‌های هوشمند
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-green-400">✓</span>
-                            کیفیت یکنواخت و بالا
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-green-500 mt-1 font-bold">✓</span>
+                            ظاهر یکپارچه، برندینگ شده و خیره‌کننده
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-green-400">✓</span>
-                            بدون خطای انسانی
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="text-green-400">✓</span>
-                            صرفه‌جویی ۱۴۴ میلیون سالانه
+                        <li class="flex items-start gap-3 text-slate-700">
+                            <span class="text-green-500 mt-1 font-bold">✓</span>
+                            بازگشت سرمایه (ROI) در کمتر از ۳ ماه
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- ROI Calculator -->
-    <section class="py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border border-slate-700 scroll-reveal">
-                <div class="text-center mb-10">
-                    <span class="text-yellow-400 font-medium mb-4 block">💰 محاسبه‌گر صرفه‌جویی</span>
-                    <h2 class="text-3xl font-black mb-4">
-                        چقدر می‌تونید صرفه‌جویی کنید؟
-                    </h2>
-                    <p class="text-slate-300">اطلاعات تیم خود را وارد کنید</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 mb-10">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">تعداد پروپوزال در ماه</label>
-                        <input type="range" id="proposalCount" min="5" max="50" value="20" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
-                        <div class="text-center mt-2 text-2xl font-bold gradient-text" id="proposalCountDisplay">۲۰</div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">میانگین حقوق تیم (میلیون تومان)</label>
-                        <input type="range" id="teamSalary" min="10" max="100" value="30" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
-                        <div class="text-center mt-2 text-2xl font-bold gradient-text" id="teamSalaryDisplay">۳۰</div>
-                    </div>
-                </div>
-                
-                <div class="bg-slate-900/50 rounded-2xl p-6 mb-8">
-                    <div class="grid grid-cols-3 gap-4 text-center">
-                        <div>
-                            <div class="text-sm text-slate-400 mb-1">صرفه‌جویی ماهانه</div>
-                            <div class="text-2xl md:text-3xl font-black text-green-400" id="monthlySaving">۱۲</div>
-                            <div class="text-sm text-slate-400">میلیون تومان</div>
-                        </div>
-                        <div>
-                            <div class="text-sm text-slate-400 mb-1">صرفه‌جویی سالانه</div>
-                            <div class="text-2xl md:text-3xl font-black text-green-400" id="yearlySaving">۱۴۴</div>
-                            <div class="text-sm text-slate-400">میلیون تومان</div>
-                        </div>
-                        <div>
-                            <div class="text-sm text-slate-400 mb-1">ساعت آزادشده</div>
-                            <div class="text-2xl md:text-3xl font-black text-blue-400" id="hoursSaved">۸۰</div>
-                            <div class="text-sm text-slate-400">ساعت در ماه</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <a href="#contact" class="gradient-bg px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition inline-flex items-center gap-2">
-                        <span>می‌خوام این صرفه‌جویی رو داشته باشم</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-slate-800/50">
+
+    <!-- Features Grid -->
+    <section id="features" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-purple-400 font-medium mb-4 block">💎 پکیج‌های قیمتی</span>
-                <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                    پکیجی که مناسب شماست را انتخاب کنید
-                </h2>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    بدون هزینه پنهان • ضمانت بازگشت وجه • پشتیبانی رایگان
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Bronze -->
-                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-700 card-hover scroll-reveal">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">🥉</div>
-                        <h3 class="text-xl font-bold">برنز</h3>
-                        <p class="text-slate-400 text-sm">تحلیل و آموزش</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-4xl font-black">۸</span>
-                        <span class="text-slate-400"> میلیون تومان</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>جلسه تحلیل فرآیند (۲ ساعت)</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>گزارش فرصت‌های اتوماسیون</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>کارگاه آموزشی تیم (۲ ساعت)</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>پشتیبانی ۱ ماهه</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center border border-slate-600 py-3 rounded-full font-medium hover:bg-slate-800 transition">
-                        انتخاب پکیج
-                    </a>
-                </div>
-                
-                <!-- Silver - Popular -->
-                <div class="bg-gradient-to-b from-purple-900/50 to-slate-900 rounded-2xl p-6 border-2 border-purple-500 card-hover relative scroll-reveal pricing-popular" style="transition-delay: 0.1s;">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-500 px-4 py-1 rounded-full text-sm font-bold">
-                        🔥 پرفروش‌ترین
-                    </div>
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">🥈</div>
-                        <h3 class="text-xl font-bold">نقره</h3>
-                        <p class="text-slate-400 text-sm">پایلوت</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-4xl font-black gradient-text">۲۲</span>
-                        <span class="text-slate-400"> میلیون تومان</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>همه موارد پکیج برنز</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>پیاده‌سازی سیستم پایلوت</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>۵ تمپلیت پروپوزال سفارشی</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>آموزش استفاده به تیم</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>پشتیبانی ۲ ماهه</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center gradient-bg py-3 rounded-full font-medium hover:opacity-90 transition">
-                        انتخاب پکیج
-                    </a>
-                </div>
-                
-                <!-- Gold -->
-                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-700 card-hover scroll-reveal" style="transition-delay: 0.2s;">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">🥇</div>
-                        <h3 class="text-xl font-bold">طلا</h3>
-                        <p class="text-slate-400 text-sm">سیستم کامل</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-4xl font-black">۴۵</span>
-                        <span class="text-slate-400"> میلیون تومان</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>همه موارد پکیج نقره</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>سیستم کامل پروپوزال‌نویسی</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>یکپارچگی با CRM</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>تمپلیت نامحدود + پنل مدیریتی</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>پشتیبانی ۶ ماهه</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center border border-slate-600 py-3 rounded-full font-medium hover:bg-slate-800 transition">
-                        انتخاب پکیج
-                    </a>
-                </div>
-                
-                <!-- Platinum -->
-                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-700 card-hover scroll-reveal" style="transition-delay: 0.3s;">
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-3">💎</div>
-                        <h3 class="text-xl font-bold">پلاتینیوم</h3>
-                        <p class="text-slate-400 text-sm">سفارشی انترپرایز</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-4xl font-black">۷۰+</span>
-                        <span class="text-slate-400"> میلیون تومان</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>همه موارد پکیج طلا</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>ویژگی‌های کاملاً سفارشی</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>ادغام با سیستم‌های داخلی</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>پشتیبانی اختصاصی ۱ ساله</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span>مشاوره مستقیم با امید شجاعی</span>
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center border border-slate-600 py-3 rounded-full font-medium hover:bg-slate-800 transition">
-                        تماس بگیرید
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Guarantee -->
-            <div class="mt-12 text-center scroll-reveal">
-                <div class="inline-flex items-center gap-4 bg-green-500/10 border border-green-500/20 rounded-full px-6 py-3">
-                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
-                    <span class="text-green-400 font-medium">ضمانت ۱۰۰٪ بازگشت وجه در صورت نارضایتی تا ۳۰ روز</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials -->
-    <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-yellow-400 font-medium mb-4 block">⭐ نظرات مشتریان</span>
-                <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                    آن‌ها به ما اعتماد کردند
-                </h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">چگونه کار می‌کند؟</h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 scroll-reveal">
-                    <div class="flex gap-1 mb-4">
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                     </div>
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        «قبلاً برای هر پروپوزال ۵ روز وقت می‌گذاشتیم. الان همان روز آماده‌ست و کیفیتش هم بهتره. این سیستم واقعاً تحول بزرگی ایجاد کرد.»
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center font-bold">
-                            م.ر
-                        </div>
-                        <div>
-                            <div class="font-bold">محمد رضایی</div>
-                            <div class="text-sm text-slate-400">مدیر فروش، شرکت فناوری پارسا</div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold mb-3">۱. ورود اطلاعات</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">تنها کافیست اطلاعات اولیه مشتری و نیازهای پروژه را در فرم ساده وارد کنید.</p>
                 </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 scroll-reveal" style="transition-delay: 0.1s;">
-                    <div class="flex gap-1 mb-4">
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        «نرخ برد ما ۳۵٪ افزایش پیدا کرد! پروپوزال‌ها حرفه‌ای‌تر شدند و مشتری‌ها سریع‌تر جواب می‌دن. سرمایه‌گذاری عالی بود.»
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center font-bold">
-                            س.م
-                        </div>
-                        <div>
-                            <div class="font-bold">سارا محمدی</div>
-                            <div class="text-sm text-slate-400">مدیرعامل، آژانس دیجیتال نوین</div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold mb-3">۲. پردازش هوشمند</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">موتور AI ما بهترین ساختار، متون و قیمت‌گذاری را بر اساس دیتابیس شما پیشنهاد می‌دهد.</p>
                 </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 scroll-reveal" style="transition-delay: 0.2s;">
-                    <div class="flex gap-1 mb-4">
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
-                        <span class="text-yellow-400">⭐</span>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        «تیم ما ۴ نفره بود برای پروپوزال. الان یک نفر همه کار رو انجام میده. بقیه روی فروش واقعی تمرکز دارن. عالیه!»
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center font-bold">
-                            ع.ح
-                        </div>
-                        <div>
-                            <div class="font-bold">علی حسینی</div>
-                            <div class="text-sm text-slate-400">مدیر بازرگانی، صنایع آریا</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Company Logos -->
-            <div class="mt-16 scroll-reveal">
-                <p class="text-center text-slate-400 mb-8">مورد اعتماد شرکت‌های پیشرو</p>
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50">
-                    <div class="text-2xl font-black text-slate-400">شرکت A</div>
-                    <div class="text-2xl font-black text-slate-400">شرکت B</div>
-                    <div class="text-2xl font-black text-slate-400">شرکت C</div>
-                    <div class="text-2xl font-black text-slate-400">شرکت D</div>
-                    <div class="text-2xl font-black text-slate-400">شرکت E</div>
+                    <h3 class="text-xl font-bold mb-3">۳. خروجی نهایی</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">یک فایل PDF یا لینک تعاملی زیبا، آماده ارسال به مشتری در کمتر از چند دقیقه.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-slate-800/50">
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="scroll-reveal">
-                    <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-3xl bg-gradient-to-br from-purple-500 to-blue-500 p-1">
-                            <div class="w-full h-full rounded-3xl bg-slate-900 flex items-center justify-center">
-                                <div class="text-center">
-                                    <div class="text-6xl mb-4">👨‍💻</div>
-                                    <div class="text-xl font-bold">امید شجاعی</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Floating badges -->
-                        <div class="absolute -top-4 -right-4 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                            +۷ سال تجربه
-                        </div>
-                        <div class="absolute -bottom-4 -left-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                            +۵۰ پروژه موفق
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">پلن‌های همکاری</h2>
+                <p class="text-slate-600">انتخاب کنید که چطور می‌خواهید فرآیند فروش خود را متحول کنید</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 
-                <div class="scroll-reveal" style="transition-delay: 0.2s;">
-                    <span class="text-purple-400 font-medium mb-4 block">👋 درباره من</span>
-                    <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                        امید شجاعی
-                    </h2>
-                    <p class="text-xl text-slate-300 mb-6 leading-relaxed">
-                        بیش از ۷ سال تجربه در حوزه فروش B2B و اتوماسیون فرآیندها
-                    </p>
-                    <div class="space-y-4 text-slate-300 mb-8">
-                        <p>
-                            من سال‌ها در تیم‌های فروش بزرگ کار کردم و از نزدیک دیدم که چقدر زمان و انرژی صرف کارهای تکراری مثل پروپوزال نویسی میشه.
-                        </p>
-                        <p>
-                            همین تجربه باعث شد که سیستم هوشمند پروپوزال رو بسازم - راه‌حلی که خودم آرزو داشتم وقتی مدیر فروش بودم.
-                        </p>
-                        <p>
-                            هدف من اینه که به تیم‌های فروش کمک کنم وقت بیشتری برای کار واقعی - یعنی فروختن - داشته باشن.
-                        </p>
-                    </div>
+                <!-- Bronze -->
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-slate-300 transition relative">
+                    <h3 class="text-xl font-bold text-slate-700 mb-2">پکیج برنز</h3>
+                    <div class="text-sm text-slate-500 mb-6">تحلیل و آموزش</div>
+                    <div class="text-3xl font-bold text-slate-900 mb-6">۸ میلیون <span class="text-base font-normal text-slate-500">تومان</span></div>
                     
-                    <div class="flex flex-wrap gap-4">
-                        <div class="flex items-center gap-2 bg-slate-700/50 rounded-full px-4 py-2">
-                            <span class="text-blue-400">📍</span>
-                            <span class="text-sm">تهران، ایران</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-slate-700/50 rounded-full px-4 py-2">
-                            <span class="text-blue-400">💼</span>
-                            <span class="text-sm">مشاور فروش B2B</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-slate-700/50 rounded-full px-4 py-2">
-                            <span class="text-blue-400">🤖</span>
-                            <span class="text-sm">متخصص AI</span>
-                        </div>
+                    <ul class="space-y-4 mb-8 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> جلسه تحلیل فرآیند فروش (۲ ساعت)</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> گزارش فرصت‌های اتوماسیون</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> کارگاه آموزشی تیم</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> پشتیبانی ۱ ماهه</li>
+                    </ul>
+                    
+                    <a href="#contact" class="block w-full py-3 px-4 bg-white border border-blue-600 text-blue-600 text-center rounded-lg font-bold hover:bg-blue-50 transition">انتخاب پلن</a>
+                </div>
+
+                <!-- Silver (Best Value) -->
+                <div class="border-2 border-blue-600 rounded-2xl p-8 bg-slate-50 relative transform md:-translate-y-4 shadow-xl">
+                    <div class="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
+                        <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">پیشنهاد ویژه (پایلوت)</span>
                     </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">پکیج نقره</h3>
+                    <div class="text-sm text-slate-500 mb-6">مناسب شرکت‌های ۵۰-۱۰۰ نفر</div>
+                    <div class="text-3xl font-bold text-slate-900 mb-6">۲۲ میلیون <span class="text-base font-normal text-slate-500">تومان</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-sm text-slate-700 font-medium">
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> تمام موارد پکیج برنز</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> پیاده‌سازی سیستم پایلوت</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> ۵ تمپلیت پروپوزال سفارشی</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> پشتیبانی ۲ ماهه</li>
+                    </ul>
+                    
+                    <a href="#contact" class="block w-full py-3 px-4 bg-blue-600 text-white text-center rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">شروع پایلوت</a>
+                </div>
+
+                <!-- Gold -->
+                <div class="border border-slate-200 rounded-2xl p-8 hover:border-slate-300 transition">
+                    <h3 class="text-xl font-bold text-slate-700 mb-2">پکیج طلا</h3>
+                    <div class="text-sm text-slate-500 mb-6">سیستم کامل (انترپرایز)</div>
+                    <div class="text-3xl font-bold text-slate-900 mb-6">۴۵ میلیون <span class="text-base font-normal text-slate-500">تومان</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> سیستم کامل پروپوزال نویسی</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> یکپارچگی با CRM موجود</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> پنل مدیریتی و گزارش‌گیری</li>
+                        <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> پشتیبانی ۶ ماهه</li>
+                    </ul>
+                    
+                    <a href="#contact" class="block w-full py-3 px-4 bg-white border border-slate-300 text-slate-700 text-center rounded-lg font-bold hover:bg-slate-50 transition">تماس بگیرید</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Consultant -->
+    <section class="py-16 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-4">درباره مشاور شما</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 mt-8">
+                <div class="w-32 h-32 bg-slate-700 rounded-full flex items-center justify-center text-4xl">
+                    <!-- Placeholder for image -->
+                    👤
+                </div>
+                <div class="text-right max-w-lg">
+                    <h3 class="text-xl font-bold mb-2">امید شجاعی</h3>
+                    <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                        من با ۷ سال تجربه در فروش B2B و فعالیت در شرکت‌هایی مثل یکتانت، دقیقاً می‌دانم تیم فروش شما کجا وقتش را تلف می‌کند. ماموریت من ساده است: حذف کارهای تکراری و بازگرداندن تمرکز تیم شما به "فروش".
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- FAQ Section -->
-    <section class="py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 scroll-reveal">
-                <span class="text-cyan-400 font-medium mb-4 block">❓ سوالات متداول</span>
-                <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                    پاسخ به سوالات شما
-                </h2>
-            </div>
-            
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden scroll-reveal">
-                    <button class="faq-toggle w-full text-right p-6 flex items-center justify-between hover:bg-slate-700/50 transition">
-                        <span class="font-bold">این سیستم چقدر زمان می‌بره تا راه‌اندازی بشه؟</span>
-                        <svg class="w-6 h-6 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-slate-300">
-                        بسته به پکیج انتخابی، راه‌اندازی بین ۱ تا ۴ هفته زمان می‌برد. پکیج پایلوت معمولاً ۲ هفته‌ای آماده می‌شود.
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden scroll-reveal" style="transition-delay: 0.1s;">
-                    <button class="faq-toggle w-full text-right p-6 flex items-center justify-between hover:bg-slate-700/50 transition">
-                        <span class="font-bold">آیا به دانش فنی خاصی نیاز داریم؟</span>
-                        <svg class="w-6 h-6 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-slate-300">
-                        خیر! سیستم کاملاً کاربرپسند طراحی شده. آموزش کامل به تیم شما داده می‌شود و پشتیبانی همیشه در دسترس است.
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden scroll-reveal" style="transition-delay: 0.2s;">
-                    <button class="faq-toggle w-full text-right p-6 flex items-center justify-between hover:bg-slate-700/50 transition">
-                        <span class="font-bold">اگر نتیجه‌ای نگرفتیم چی؟</span>
-                        <svg class="w-6 h-6 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-slate-300">
-                        ما ضمانت ۳۰ روزه بازگشت وجه داریم. اگر تا ۳۰ روز راضی نبودید، ۱۰۰٪ پول شما برگردانده می‌شود. بدون هیچ سوالی!
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 4 -->
-                <div class="bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden scroll-reveal" style="transition-delay: 0.3s;">
-                    <button class="faq-toggle w-full text-right p-6 flex items-center justify-between hover:bg-slate-700/50 transition">
-                        <span class="font-bold">آیا با CRM ما سازگاره؟</span>
-                        <svg class="w-6 h-6 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-slate-300">
-                        بله! سیستم با اکثر CRM‌های محبوب سازگار است. در پکیج طلا و پلاتینیوم، یکپارچه‌سازی کامل انجام می‌شود.
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="bg-slate-800/50 rounded-2xl border border-slate-700 overflow-hidden scroll-reveal" style="transition-delay: 0.4s;">
-                    <button class="faq-toggle w-full text-right p-6 flex items-center justify-between hover:bg-slate-700/50 transition">
-                        <span class="font-bold">پشتیبانی چگونه انجام می‌شود؟</span>
-                        <svg class="w-6 h-6 transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-slate-300">
-                        پشتیبانی از طریق تلگرام، واتساپ و ایمیل ۲۴/۷ در دسترس است. پکیج‌های بالاتر شامل جلسات آنلاین اختصاصی هستند.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-purple-900/50 to-slate-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-3xl p-8 md:p-12 scroll-reveal">
+
+    <!-- CTA / Contact Form -->
+    <section id="contact" class="py-20 bg-blue-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
                 <div class="text-center mb-10">
-                    <span class="text-green-400 font-medium mb-4 block">🚀 شروع کنید</span>
-                    <h2 class="text-3xl sm:text-4xl font-black mb-6">
-                        تحلیل رایگان فرآیند فروش شما
-                    </h2>
-                    <p class="text-xl text-slate-300">
-                        فرم زیر را پر کنید تا در اولین فرصت با شما تماس بگیریم
-                    </p>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">درخواست تحلیل رایگان</h2>
+                    <p class="text-slate-600">فرم زیر را پر کنید تا طی ۲۴ ساعت برای یک جلسه مشاوره رایگان با شما تماس بگیریم.</p>
                 </div>
-                
-                <form id="contactForm" class="space-y-6">
+
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('درخواست شما ثبت شد! به زودی با شما تماس خواهیم گرفت.');">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium mb-2">نام و نام خانوادگی *</label>
-                            <input type="text" required class="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition" placeholder="مثال: علی محمدی">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">نام و نام خانوادگی</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="مثال: علی محمدی" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">نام شرکت *</label>
-                            <input type="text" required class="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition" placeholder="مثال: شرکت فناوری پارسا">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">نام شرکت</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="مثال: شرکت پیشگامان" required>
                         </div>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium mb-2">شماره تماس *</label>
-                            <input type="tel" required class="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">شماره تماس</label>
+                            <input type="tel" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="0912..." dir="ltr" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">ایمیل</label>
-                            <input type="email" class="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition" placeholder="email@company.com">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">تعداد تقریبی پروپوزال در ماه</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                                <option>کمتر از ۱۰</option>
+                                <option>۱۰ تا ۵۰</option>
+                                <option>بیشتر از ۵۰</option>
+                            </select>
                         </div>
                     </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium mb-2">تعداد پروپوزال در ماه</label>
-                        <select class="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition">
-                            <option>کمتر از ۱۰</option>
-                            <option>۱۰ تا ۲۰</option>
-                            <option selected>۲۰ تا ۵۰</option>
-                            <option>بیشتر از ۵۰</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium mb-2">توضیحات (اختیاری)</label>
-                        <textarea rows="4" class="w-full bg-slate-700/50 border border-slate-600 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-500 transition resize-none" placeholder="هر توضیح اضافه‌ای که فکر می‌کنید مفیده..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="w-full gradient-bg py-4 rounded-xl font-bold text-lg hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <span>درخواست تحلیل رایگان</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                        </svg>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 text-lg">
+                        ثبت درخواست مشاوره رایگان
                     </button>
-                    
-                    <p class="text-center text-sm text-slate-400">
-                        🔒 اطلاعات شما محرمانه می‌ماند و فقط برای تماس با شما استفاده می‌شود
-                    </p>
+                    <p class="text-center text-xs text-slate-400 mt-4">اطلاعات شما کاملاً محرمانه خواهد ماند.</p>
                 </form>
-                
-                <!-- Success Message (Hidden by default) -->
-                <div id="successMessage" class="hidden text-center py-12">
-                    <div class="text-6xl mb-4">🎉</div>
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">درخواست شما ثبت شد!</h3>
-                    <p class="text-slate-300">حداکثر تا ۲۴ ساعت آینده با شما تماس می‌گیریم.</p>
-                </div>
-            </div>
-            
-            <!-- Alternative Contact Methods -->
-            <div class="mt-12 grid md:grid-cols-3 gap-6 scroll-reveal">
-                <a href="tel:+989123456789" class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center hover:bg-slate-700/50 transition">
-                    <div class="text-3xl mb-3">📞</div>
-                    <div class="font-bold mb-1">تماس مستقیم</div>
-                    <div class="text-slate-400 text-sm">۰۹۱۲-۳۴۵-۶۷۸۹</div>
-                </a>
-                <a href="https://t.me/OmidShojaei" target="_blank" class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center hover:bg-slate-700/50 transition">
-                    <div class="text-3xl mb-3">💬</div>
-                    <div class="font-bold mb-1">تلگرام</div>
-                    <div class="text-slate-400 text-sm">@OmidShojaei</div>
-                </a>
-                <a href="mailto:hello@proposal.ai" class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 text-center hover:bg-slate-700/50 transition">
-                    <div class="text-3xl mb-3">✉️</div>
-                    <div class="font-bold mb-1">ایمیل</div>
-                    <div class="text-slate-400 text-sm">hello@proposal.ai</div>
-                </a>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
-    <footer class="py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </div>
-                    <span class="font-bold">پروپوزال هوشمند</span>
-                </div>
-                
-                <div class="text-center text-slate-400 text-sm">
-                    © ۱۴۰۳ تمامی حقوق محفوظ است | طراحی شده توسط امید شجاعی
-                </div>
-                
-                <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-slate-700 transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-slate-700 transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-slate-700 transition">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                </div>
+    <footer class="bg-slate-50 border-t border-slate-200 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-500 text-sm">
+                © ۱۴۰۲ تمامی حقوق محفوظ است. طراحی و توسعه توسط امید شجاعی.
+            </p>
+            <div class="mt-4 flex justify-center space-x-6 space-x-reverse">
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition">لینکدین</a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition">تلگرام</a>
+                <a href="#" class="text-slate-400 hover:text-blue-600 transition">ایمیل</a>
             </div>
         </div>
     </footer>
-    
-    <!-- Sticky CTA for Mobile -->
-    <div id="stickyCta" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur border-t border-slate-700 p-4 md:hidden z-50 sticky-cta">
-        <a href="#contact" class="gradient-bg py-3 rounded-full font-bold text-center block">
-            درخواست تحلیل رایگان
-        </a>
-    </div>
-    
+
     <script>
         // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
-        
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
+
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                menu.classList.add('hidden'); // Close mobile menu if open
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
-        
-        // Scroll Reveal Animation
-        const scrollReveal = () => {
-            const elements = document.querySelectorAll('.scroll-reveal');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', scrollReveal);
-        window.addEventListener('load', scrollReveal);
-        
-        // Counter Animation
-        const animateCounters = () => {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-                
-                const updateCounter = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.textContent = toPersianNum(Math.floor(current));
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = toPersianNum(target);
-                    }
-                };
-                
-                updateCounter();
-            });
-        };
-        
-        // Convert to Persian Numbers
-        const toPersianNum = (num) => {
-            const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-            return num.toString().replace(/\d/g, d => persianDigits[d]);
-        };
-        
-        // Start counter animation when in view
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    counterObserver.disconnect();
-                }
-            });
-        });
-        
-        const counterSection = document.querySelector('.counter');
-        if (counterSection) {
-            counterObserver.observe(counterSection);
-        }
-        
-        // ROI Calculator
-        const proposalCount = document.getElementById('proposalCount');
-        const teamSalary = document.getElementById('teamSalary');
-        const proposalCountDisplay = document.getElementById('proposalCountDisplay');
-        const teamSalaryDisplay = document.getElementById('teamSalaryDisplay');
-        const monthlySaving = document.getElementById('monthlySaving');
-        const yearlySaving = document.getElementById('yearlySaving');
-        const hoursSaved = document.getElementById('hoursSaved');
-        
-        const updateCalculator = () => {
-            const proposals = parseInt(proposalCount.value);
-            const salary = parseInt(teamSalary.value);
-            
-            // Calculate savings (assuming 80% time reduction)
-            const currentCost = (proposals * 5 * salary) / 20; // 5 days per proposal, 20 working days
-            const newCost = (proposals * 1 * salary) / 20; // 1 day per proposal
-            const monthly = Math.round(currentCost - newCost);
-            const yearly = monthly * 12;
-            const hours = proposals * 4 * 8; // 4 days saved * 8 hours
-            
-            proposalCountDisplay.textContent = toPersianNum(proposals);
-            teamSalaryDisplay.textContent = toPersianNum(salary);
-            monthlySaving.textContent = toPersianNum(monthly);
-            yearlySaving.textContent = toPersianNum(yearly);
-            hoursSaved.textContent = toPersianNum(Math.round(hours * 0.8));
-        };
-        
-        proposalCount.addEventListener('input', updateCalculator);
-        teamSalary.addEventListener('input', updateCalculator);
-        
-        // FAQ Toggle
-        document.querySelectorAll('.faq-toggle').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('.faq-icon');
-                
-                content.classList.toggle('hidden');
-                icon.classList.toggle('rotate-180');
-            });
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            contactForm.classList.add('hidden');
-            successMessage.classList.remove('hidden');
-            
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-        
-        // Sticky CTA for Mobile
-        const stickyCta = document.getElementById('stickyCta');
-        const heroSection = document.querySelector('section');
-        
-        window.addEventListener('scroll', () => {
-            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-            if (window.scrollY > heroBottom) {
-                stickyCta.classList.add('visible');
-            } else {
-                stickyCta.classList.remove('visible');
-            }
-        });
-        
-        // Navbar Background on Scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-slate-900/95', 'shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
         });
     </script>
 </body>
