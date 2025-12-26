@@ -22,16 +22,16 @@ jobs:
       - name: Create config.js from Secrets
         env:
           FORMSPREE_ENDPOINT: ${{ secrets.FORMSPREE_ENDPOINT }}
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
-          GITHUB_REPO: ${{ secrets.GITHUB_REPO }}
-          GITHUB_LABELS: ${{ secrets.GITHUB_LABELS }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          GIT_LABELS: ${{ secrets.GIT_LABELS }}
           CLICKUP_TOKEN: ${{ secrets.CLICKUP_TOKEN }}
           CLICKUP_LIST_ID: ${{ secrets.CLICKUP_LIST_ID }}
           CLICKUP_STATUS: ${{ secrets.CLICKUP_STATUS }}
           CLICKUP_PRIORITY: ${{ secrets.CLICKUP_PRIORITY }}
         run: |
           # Set defaults if not provided
-          GITHUB_LABELS=${GITHUB_LABELS:-'["contact-form", "new-lead"]'}
+          GIT_LABELS=${GIT_LABELS:-'["contact-form", "new-lead"]'}
           CLICKUP_STATUS=${CLICKUP_STATUS:-'to do'}
           CLICKUP_PRIORITY=${CLICKUP_PRIORITY:-3}
           
@@ -45,9 +45,9 @@ jobs:
               formspreeEndpoint: "${FORMSPREE_ENDPOINT}",
               
               // GitHub Configuration
-              githubToken: "${GITHUB_PAT}",
-              githubRepo: "${GITHUB_REPO}",
-              githubLabels: ${GITHUB_LABELS},
+              githubToken: "${GH_PAT}",
+              githubRepo: "${REPO_NAME}",
+              githubLabels: ${GIT_LABELS},
               
               // ClickUp Configuration
               clickupToken: "${CLICKUP_TOKEN}",
