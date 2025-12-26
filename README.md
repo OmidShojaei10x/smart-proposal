@@ -15,7 +15,31 @@
 2. **GitHub Issues** - ایجاد Issue در ریپازیتوری
 3. **ClickUp** - ایجاد Task برای پیگیری
 
-### مراحل راه‌اندازی
+### روش 1: استفاده از GitHub Actions (پیشنهادی برای GitHub Pages)
+
+این روش برای GitHub Pages توصیه می‌شود و از GitHub Secrets برای نگهداری امن توکن‌ها استفاده می‌کند.
+
+1. **تنظیم GitHub Secrets:**
+   - به ریپازیتوری بروید: Settings > Secrets and variables > Actions
+   - Secrets زیر را اضافه کنید (راهنمای کامل در [.github/SECRETS_SETUP.md](.github/SECRETS_SETUP.md)):
+     - `FORMSPREE_ENDPOINT`
+     - `GITHUB_PAT` (Personal Access Token)
+     - `GITHUB_REPO`
+     - `CLICKUP_TOKEN`
+     - `CLICKUP_LIST_ID`
+     - (اختیاری) `GITHUB_LABELS`, `CLICKUP_STATUS`, `CLICKUP_PRIORITY`
+
+2. **اجرای Workflow:**
+   - به تب Actions بروید
+   - workflow "Build Config from Secrets" را اجرا کنید
+   - یا یک commit جدید push کنید تا به صورت خودکار اجرا شود
+
+3. **نتیجه:**
+   - فایل `config.js` به صورت خودکار از Secrets ساخته می‌شود
+   - GitHub Pages به صورت خودکار آپدیت می‌شود
+   - فرم تماس روی سایت لایو کار می‌کند
+
+### روش 2: تنظیم دستی (برای تست محلی)
 
 #### 1. کپی کردن فایل تنظیمات
 
