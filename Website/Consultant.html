@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امید شجاعی | مشاور هوش مصنوعی و اتوماسیون کسب‌وکار</title>
+    <meta name="description" content="کاهش ۷۰٪ زمان فرآیندهای تکراری با ترکیب تجربه ۷ سال B2B + مهارت AI. مشاوره اتوماسیون هوشمند کسب‌وکار.">
+    
+    <!-- Fonts: Vazirmatn & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                        latin: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#8B5CF6',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Utilities */
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #3B82F6, #8B5CF6);
+        }
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(139,92,246,0.05) 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(40px);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white shadow-lg group-hover:shadow-primary/30 transition-all">
+                    <span class="font-bold text-lg">OS</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg leading-tight">امید شجاعی</span>
+                    <span class="text-xs text-gray-500">مشاور AI و اتوماسیون</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-gray-600 hover:text-primary font-medium transition-colors">خدمات</a>
+                <a href="#about" class="text-gray-600 hover:text-primary font-medium transition-colors">درباره من</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-primary font-medium transition-colors">نمونه کارها</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary font-medium transition-colors">تماس</a>
+            </nav>
+
+            <!-- CTA & Mobile Menu Button -->
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-accent hover:bg-emerald-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30 transform hover:-translate-y-0.5">
+                    <span>جلسه رایگان</span>
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </a>
+                
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl p-4 flex flex-col gap-4">
+            <a href="#services" class="text-gray-600 hover:text-primary font-medium p-2 hover:bg-gray-50 rounded-lg">خدمات</a>
+            <a href="#about" class="text-gray-600 hover:text-primary font-medium p-2 hover:bg-gray-50 rounded-lg">درباره من</a>
+            <a href="#portfolio" class="text-gray-600 hover:text-primary font-medium p-2 hover:bg-gray-50 rounded-lg">نمونه کارها</a>
+            <a href="#contact" class="bg-accent text-white p-3 rounded-lg text-center font-medium">جلسه رایگان</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <div class="hero-blob top-0 right-0 translate-x-1/3 -translate-y-1/4"></div>
+        <div class="hero-blob bottom-0 left-0 -translate-x-1/3 translate-y-1/4"></div>
+
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <!-- Text Content -->
+                <div class="flex-1 text-center lg:text-right space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        پذیرش پروژه جدید برای ماه جاری
+                    </div>
+
+                    <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight text-gray-900">
+                        کسب‌وکارتان را با <br>
+                        <span class="gradient-text">هوش مصنوعی</span>
+                        متحول کنید
+                    </h1>
+
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        کاهش ۷۰٪ زمان فرآیندهای تکراری | افزایش بهره‌وری تیم | تمرکز روی کارهای استراتژیک
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-primary/40 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <i data-lucide="calendar"></i>
+                            جلسه آشنایی رایگان (۳۰ دقیقه)
+                        </a>
+                        <a href="#services" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                            مشاهده خدمات
+                            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-accent"></i>
+                            <span>تضمین کیفیت</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-accent"></i>
+                            <span>پشتیبانی مستقیم</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="flex-1 w-full max-w-lg lg:max-w-none relative">
+                    <div class="relative z-10 bg-white rounded-3xl p-2 shadow-2xl border border-gray-100 rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard Automation" class="rounded-2xl w-full h-auto object-cover">
+                        
+                        <!-- Floating Card 1 -->
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border border-gray-50 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                <i data-lucide="trending-up" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">افزایش بهره‌وری</p>
+                                <p class="font-bold text-gray-800">+۱۵۰٪</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2 -->
+                        <div class="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-50 flex items-center gap-3 animate-bounce" style="animation-duration: 4s; animation-delay: 1s;">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">زمان ذخیره شده</p>
+                                <p class="font-bold text-gray-800">۷۰٪</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative patterns -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full filter blur-3xl -z-10 transform scale-110"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-8 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-gray-400 font-semibold text-sm md:text-base grayscale opacity-70">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    <span>۷ سال تجربه فروش B2B</span>
+                </div>
+                <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                    <span>همکاری با ۱۰۰۰+ برند</span>
+                </div>
+                <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="code" class="w-5 h-5"></i>
+                    <span>توسعه ۱۵,۰۰۰+ خط کد AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">آیا کسب‌وکار شما با این چالش‌ها دست و پنجه نرم می‌کند؟</h2>
+                <p class="text-gray-600">تفاوت روش سنتی و روش هوشمند در یک نگاه</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Problems -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-red-50 hover:border-red-100 transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">وضعیت فعلی (سنتی)</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                            تیم روی کارهای تکراری و خسته‌کننده وقت می‌گذارد
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                            فرآیندها زمان‌بر، دستی و ناکارآمد هستند
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                            خطاهای انسانی باعث ضرر مالی می‌شود
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                            سرعت پاسخ‌گویی به مشتریان پایین است
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i data-lucide="x-circle" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                            مقیاس‌پذیری بدون استخدام نیروی جدید ممکن نیست
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solutions -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-emerald-50 relative overflow-hidden transform md:-translate-y-4">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-teal-500"></div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <i data-lucide="check" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">با اتوماسیون هوشمند</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            اتوماسیون کامل کارهای تکراری و اداری
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            کاهش ۷۰٪ زمان اجرای فرآیندها
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            حذف خطاهای انسانی و افزایش دقت به ۱۰۰٪
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            پاسخ‌گویی ۲۴/۷ به مشتریان بدون خستگی
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
+                            رشد نمایی کسب‌وکار بدون افزایش هزینه‌های سربار
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <span class="text-primary font-semibold tracking-wider uppercase text-sm">خدمات من</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">پکیج‌های خدماتی</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">از مشاوره اولیه تا پیاده‌سازی کامل سیستم‌های هوشمند، همراه شما هستم.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Discovery -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 flex flex-col">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Discovery</h3>
+                    <div class="text-2xl font-bold text-gray-900 mb-1">۸ میلیون <span class="text-sm font-normal text-gray-500">تومان</span></div>
+                    <p class="text-sm text-gray-500 mb-6">۱ جلسه (۳ ساعت)</p>
+                    
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-primary"></i> تحلیل کامل فرآیندهای کسب‌وکار</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-primary"></i> شناسایی ۵ فرصت اتوماسیون</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-primary"></i> گزارش اولویت‌بندی شده</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-primary"></i> تخمین دقیق ROI</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-primary"></i> نقشه راه اجرا</li>
+                    </ul>
+                    
+                    <a href="#contact" onclick="selectService('Discovery')" class="w-full py-3 rounded-xl border border-blue-200 text-blue-600 font-medium hover:bg-blue-50 text-center transition-colors">انتخاب پکیج</a>
+                </div>
+
+                <!-- Card 2: Consulting (Recommended) -->
+                <div class="bg-white rounded-2xl p-6 border-2 border-primary shadow-xl relative flex flex-col transform md:scale-105 z-10">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-lg">پیشنهادی</div>
+                    <div class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Consulting</h3>
+                    <div class="text-2xl font-bold text-gray-900 mb-1">۲۰ میلیون <span class="text-sm font-normal text-gray-500">تومان</span></div>
+                    <p class="text-sm text-gray-500 mb-6">۱ ماه (۴ جلسه)</p>
+                    
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-center gap-2 text-sm text-gray-700 font-medium"><i data-lucide="check" class="w-4 h-4 text-primary"></i> همه موارد Discovery</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-700 font-medium"><i data-lucide="check" class="w-4 h-4 text-primary"></i> کارگاه آموزشی تیم (۴ ساعت)</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-700 font-medium"><i data-lucide="check" class="w-4 h-4 text-primary"></i> راهنمایی گام‌به‌گام</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-700 font-medium"><i data-lucide="check" class="w-4 h-4 text-primary"></i> پشتیبانی تلگرام</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-700 font-medium"><i data-lucide="check" class="w-4 h-4 text-primary"></i> بررسی نتایج و بهینه‌سازی</li>
+                    </ul>
+                    
+                    <a href="#contact" onclick="selectService('Consulting')" class="w-full py-3 rounded-xl bg-primary text-white font-medium hover:bg-blue-600 text-center transition-colors shadow-lg shadow-blue-200">انتخاب پکیج</a>
+                </div>
+
+                <!-- Card 3: Implementation -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 flex flex-col">
+                    <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="settings" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Implementation</h3>
+                    <div class="text-2xl font-bold text-gray-900 mb-1">۲۵-۸۰ <span class="text-sm font-normal text-gray-500">میلیون</span></div>
+                    <p class="text-sm text-gray-500 mb-6">۲-۶ هفته اجرا</p>
+                    
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-violet-500"></i> طراحی و توسعه کامل سیستم</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-violet-500"></i> تست و رفع باگ</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-violet-500"></i> آموزش کامل به تیم</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-violet-500"></i> مستندات فنی</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-violet-500"></i> ۲ ماه پشتیبانی</li>
+                    </ul>
+                    
+                    <a href="#contact" onclick="selectService('Implementation')" class="w-full py-3 rounded-xl border border-violet-200 text-violet-600 font-medium hover:bg-violet-50 text-center transition-colors">انتخاب پکیج</a>
+                </div>
+
+                <!-- Card 4: Retainer -->
+                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 flex flex-col">
+                    <div class="w-12 h-12 bg-gray-200 text-gray-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Retainer</h3>
+                    <div class="text-2xl font-bold text-gray-900 mb-1">۱۵ میلیون <span class="text-sm font-normal text-gray-500">/ماه</span></div>
+                    <p class="text-sm text-gray-500 mb-6">حداقل قرارداد ۳ ماهه</p>
+                    
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-gray-500"></i> ۱۵ ساعت مشاوره ماهانه</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-gray-500"></i> پشتیبانی تلگرام</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-gray-500"></i> یک پروژه کوچک در ماه</li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="check" class="w-4 h-4 text-gray-500"></i> بهینه‌سازی مستمر</li>
+                    </ul>
+                    
+                    <a href="#contact" onclick="selectService('Retainer')" class="w-full py-3 rounded-xl border border-gray-300 text-gray-600 font-medium hover:bg-gray-100 text-center transition-colors">انتخاب پکیج</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-20 bg-gray-50 border-y border-gray-200">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">چطور شروع می‌کنیم؟</h2>
+            
+            <div class="relative">
+                <!-- Line for Desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -z-10 -translate-y-1/2 mx-20"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center relative">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow-lg">1</div>
+                        <h3 class="font-bold text-lg mb-2">جلسه آشنایی رایگان</h3>
+                        <p class="text-sm text-gray-500">۳۰ دقیقه گفتگو برای شناخت نیازها - بدون تعهد</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center relative">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow-lg">2</div>
+                        <h3 class="font-bold text-lg mb-2">تحلیل نیاز</h3>
+                        <p class="text-sm text-gray-500">شناسایی فرصت‌ها و اولویت‌بندی</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center relative">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow-lg">3</div>
+                        <h3 class="font-bold text-lg mb-2">پیشنهاد</h3>
+                        <p class="text-sm text-gray-500">ارائه راه‌حل فنی و قیمت‌گذاری</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm text-center relative">
+                        <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow-lg">4</div>
+                        <h3 class="font-bold text-lg mb-2">اجرا</h3>
+                        <p class="text-sm text-gray-500">پیاده‌سازی، تحویل و آموزش</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">نمونه کارها</h2>
+                <p class="text-gray-600">پروژه‌هایی که با موفقیت تحویل داده‌ایم</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Case Study 1: TeleSummary -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="brain" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">TeleSummary</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium">بات تحلیل گروه‌های تلگرام</p>
+                    
+                    <div class="space-y-4 mb-6 flex-1">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="alert-circle" class="w-4 h-4 text-red-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">چالش:</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">مدیران نمی‌توانستند صدها پیام روزانه گروه‌های تلگرام را پیگیری کنند و پیام‌های مهم را از دست می‌دادند.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="lightbulb" class="w-4 h-4 text-yellow-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">راه‌حل:</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">بات هوشمندی که با GPT-4 گزارش‌های اجرایی تولید می‌کند، احساسات را تحلیل می‌کند و در صورت شناسایی نارضایتی هشدار می‌دهد.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="code" class="w-4 h-4 text-violet-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">تکنولوژی:</span>
+                            </div>
+                            <p class="text-xs text-gray-600 leading-relaxed">Python • OpenAI GPT-4 • Supabase • PostgreSQL • FastAPI • Telegram Bot API</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+                            <span class="text-sm font-bold text-emerald-700">نتایج:</span>
+                        </div>
+                        <ul class="space-y-1.5 text-xs text-emerald-700">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>۸۵٪ کاهش زمان بررسی پیام‌ها</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>شناسایی خودکار ۹۰٪+ موارد بحرانی</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>۱۶ مرحله conversation handler</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>+۶۰۰۰ خط کد تولید شده</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Catering Bot -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">بات مدیریت کترینگ سازمانی</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium">سیستم ثبت سفارش پذیرایی</p>
+                    
+                    <div class="space-y-4 mb-6 flex-1">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="alert-circle" class="w-4 h-4 text-red-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">چالش:</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">فرآیند ثبت درخواست پذیرایی دستی و زمان‌بر بود و امکان پیگیری و گزارش‌گیری وجود نداشت.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="lightbulb" class="w-4 h-4 text-yellow-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">راه‌حل:</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">بات تلگرام با فرآیند ۱۶ مرحله‌ای برای ثبت، تایید و پیگیری سفارشات با ادغام کامل Google Workspace.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="code" class="w-4 h-4 text-violet-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">تکنولوژی:</span>
+                            </div>
+                            <p class="text-xs text-gray-600 leading-relaxed">Python • Telegram Bot • Google Sheets API • Google Drive API • Job Queue</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+                            <span class="text-sm font-bold text-emerald-700">نتایج:</span>
+                        </div>
+                        <ul class="space-y-1.5 text-xs text-emerald-700">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>۷۰٪ کاهش زمان ثبت درخواست</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>+۱۰۰ سفارش ثبت شده</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>سیستم بازخورد خودکار</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>یادآور و پیگیری هوشمند</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: YektaYar Bot v2 -->
+                <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-2 flex flex-col">
+                    <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="building-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">YektaYar Bot v2</h3>
+                    <p class="text-sm text-gray-500 mb-4 font-medium">سیستم رزرو اتاق هوشمند</p>
+                    
+                    <div class="space-y-4 mb-6 flex-1">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="alert-circle" class="w-4 h-4 text-red-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">چالش:</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">نیاز به سیستمی مقیاس‌پذیر برای رزرو اتاق‌های جلسه با ادغام تقویم‌های Exchange و Google.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="lightbulb" class="w-4 h-4 text-yellow-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">راه‌حل:</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed">بات Enterprise-level با معماری Clean Architecture، قابلیت مقیاس‌پذیری افقی و آماده استقرار در Kubernetes.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-lucide="code" class="w-4 h-4 text-violet-500"></i>
+                                <span class="text-sm font-semibold text-gray-700">تکنولوژی:</span>
+                            </div>
+                            <p class="text-xs text-gray-600 leading-relaxed">Python • PostgreSQL • Redis • Celery • RabbitMQ • Exchange API • Google Calendar • Docker • K8s</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+                            <span class="text-sm font-bold text-emerald-700">نتایج:</span>
+                        </div>
+                        <ul class="space-y-1.5 text-xs text-emerald-700">
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>معماری Microservices-ready</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>+۸۰۰۰ خط کد</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>پشتیبانی از Horizontal Scaling</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check" class="w-3 h-3 mt-0.5 shrink-0"></i><span>متریک‌های Prometheus و Grafana</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary/10 rounded-full transform translate-x-4 translate-y-4"></div>
+                        <img src="images/omid-shojaei.jpg" alt="Omid Shojaei" class="relative rounded-3xl shadow-2xl w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+                <div class="lg:w-2/3 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">سلام، من <span class="text-primary">امید شجاعی</span> هستم 👋</h2>
+                    <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
+                        <p>
+                            ۷ سال در حوزه فروش B2B کار کردم.<br>
+                            با بیش از ۱۰۰۰ برند همکاری داشتم.<br>
+                            میلیاردها تومان فروش داشتم.
+                        </p>
+                        <p class="font-medium text-gray-800">
+                            در این ۷ سال یک چیز را فهمیدم:<br>
+                            بیشتر کسب‌وکارها روی کارهای تکراری وقت تلف می‌کنند.
+                        </p>
+                        <p>
+                            الان با ترکیب تجربه‌ام در کسب‌وکار و مهارتم در هوش مصنوعی،<br>
+                            به شرکت‌ها کمک می‌کنم:
+                        </p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start gap-2">✅ <span>فرآیندهای تکراری را شناسایی کنند</span></li>
+                            <li class="flex items-start gap-2">✅ <span>با هوش مصنوعی اتوماتیک‌شان کنند</span></li>
+                            <li class="flex items-start gap-2">✅ <span>زمان و هزینه را ۷۰٪ کاهش دهند</span></li>
+                            <li class="flex items-start gap-2">✅ <span>روی کارهای استراتژیک تمرکز کنند</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                            <i data-lucide="cpu" class="w-6 h-6 text-primary mb-2"></i>
+                            <h4 class="font-bold mb-1">اتوماسیون با AI</h4>
+                            <p class="text-sm text-gray-500">طراحی و پیاده‌سازی سیستم‌های هوشمند</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                            <i data-lucide="message-square" class="w-6 h-6 text-secondary mb-2"></i>
+                            <h4 class="font-bold mb-1">توسعه بات‌های هوشمند</h4>
+                            <p class="text-sm text-gray-500">بات‌های تلگرام و اتوماسیون فرآیندها</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                            <i data-lucide="briefcase" class="w-6 h-6 text-accent mb-2"></i>
+                            <h4 class="font-bold mb-1">مشاوره B2B</h4>
+                            <p class="text-sm text-gray-500">۷ سال تجربه فروش و مذاکره</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                            <i data-lucide="git-merge" class="w-6 h-6 text-gray-600 mb-2"></i>
+                            <h4 class="font-bold mb-1">یکپارچه‌سازی سیستم‌ها</h4>
+                            <p class="text-sm text-gray-500">اتصال ابزارها و پلتفرم‌های مختلف</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-violet-700 -z-10"></div>
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">آماده شروع هستید؟</h2>
+                <p class="text-blue-100 text-lg">جلسه آشنایی رایگان ۳۰ دقیقه‌ای رزرو کنید</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+                <form id="contactForm" action="https://formspree.io/f/PLACEHOLDER_ID" method="POST" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-700">نام و نام خانوادگی <span class="text-red-500">*</span></label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="مثال: علی محمدی">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-700">نام شرکت <span class="text-red-500">*</span></label>
+                            <input type="text" name="company" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="مثال: شرکت نوآوران">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-700">شماره تماس <span class="text-red-500">*</span></label>
+                            <input type="tel" name="phone" required dir="ltr" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-right" placeholder="0912...">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium text-gray-700">ایمیل <span class="text-red-500">*</span></label>
+                            <input type="email" name="email" required dir="ltr" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-right" placeholder="name@company.com">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-gray-700">نوع خدمت مورد نیاز <span class="text-red-500">*</span></label>
+                        <select id="serviceSelect" name="service" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
+                            <option value="" disabled selected>انتخاب کنید...</option>
+                            <option value="Discovery">Discovery (۸ میلیون)</option>
+                            <option value="Consulting">Consulting (۲۰ میلیون)</option>
+                            <option value="Implementation">Implementation (۲۵-۸۰ میلیون)</option>
+                            <option value="Retainer">Retainer (۱۵ میلیون/ماه)</option>
+                            <option value="Consultation">نمی‌دانم، می‌خواهم مشاوره بگیرم</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-gray-700">توضیحات چالش/نیاز شما <span class="text-red-500">*</span></label>
+                        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="لطفاً توضیح مختصری درباره فرآیندهایی که می‌خواهید اتوماسیون کنید بنویسید..."></textarea>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                        <input type="checkbox" id="privacy" required class="mt-1 w-4 h-4 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="privacy" class="text-sm text-gray-500">با ارسال این فرم موافقت می‌کنم که اطلاعات من برای تماس ذخیره شود.</label>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-accent hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg hover:shadow-emerald-500/30 transition-all text-lg">
+                        ارسال درخواست
+                    </button>
+                    <p class="text-center text-xs text-gray-400 mt-2">معمولاً ظرف ۲۴ ساعت پاسخ می‌دهیم</p>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage" class="hidden text-center py-10 space-y-4">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="check-circle" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900">درخواست شما ثبت شد!</h3>
+                    <p class="text-gray-600">ممنون از اعتماد شما. به زودی با شما تماس می‌گیرم.</p>
+                    <button onclick="resetForm()" class="text-primary hover:underline mt-4">ارسال درخواست جدید</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">سوالات متداول</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="font-bold text-gray-800">چقدر زمان می‌برد تا نتیجه ببینیم؟</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                        بسته به نوع پروژه متفاوت است. در پروژه‌های Discovery معمولاً در کمتر از یک هفته نقشه راه را دارید. در پیاده‌سازی‌ها، معمولاً بین ۳ تا ۶ هفته زمان نیاز است تا سیستم کامل مستقر شود.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="font-bold text-gray-800">آیا نیاز به دانش فنی داریم؟</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                        خیر، اصلاً. هدف ما این است که پیچیدگی فنی را از دوش شما برداریم. ما سیستم را می‌سازیم و تیم شما فقط با رابط کاربری ساده آن کار می‌کند. آموزش کامل هم ارائه می‌شود.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="font-bold text-gray-800">هزینه نگهداری سیستم‌ها چقدر است؟</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                        بسیاری از ابزارهای مدرن هزینه نگهداری پایینی دارند. ما سعی می‌کنیم از ابزارهای No-Code/Low-Code استفاده کنیم که هزینه سرور و نگهداری را به حداقل می‌رسانند. تخمین دقیق در جلسه مشاوره داده می‌شود.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 4 -->
+                <details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="font-bold text-gray-800">آیا امنیت اطلاعات ما حفظ می‌شود؟</span>
+                        <span class="transition group-open:rotate-180">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                        بله، صد در صد. تمام اطلاعات کسب‌وکار شما محرمانه تلقی شده و در قرارداد منع افشای اطلاعات (NDA) ذکر می‌شود. ما از استانداردهای امنیتی روز برای پیاده‌سازی اتوماسیون‌ها استفاده می‌کنیم.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Col 1 -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6 text-white">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-sm">OS</div>
+                        <span class="font-bold text-lg">امید شجاعی</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                        کمک به کسب‌وکارها برای رهایی از کارهای تکراری و تمرکز بر رشد واقعی با قدرت هوش مصنوعی.
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">دسترسی سریع</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#services" class="hover:text-primary transition-colors">خدمات</a></li>
+                        <li><a href="#about" class="hover:text-primary transition-colors">درباره من</a></li>
+                        <li><a href="#portfolio" class="hover:text-primary transition-colors">نمونه کارها</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors">تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">تماس</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-gray-500"></i>
+                            <span dir="ltr">09193619161</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-gray-500"></i>
+                            <span dir="ltr">mromidshojaei@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i>
+                            <span>تهران، ایران</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="send" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+                <p>Copyright © 2024 امید شجاعی | تمامی حقوق محفوظ است</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/80', 'bg-white/95');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white/80');
+            }
+        });
+
+        // Service Selection Logic
+        function selectService(serviceName) {
+            const select = document.getElementById('serviceSelect');
+            select.value = serviceName;
+            // Smooth scroll to form
+            // document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Fake Form Submission Handling (for Demo)
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', (e) => {
+            // Note: In a real deploy, let Formspree handle it or use AJAX
+            // For this single-file demo, we simulate success
+            e.preventDefault();
+            
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'در حال ارسال...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        });
+
+        function resetForm() {
+            form.reset();
+            successMessage.classList.add('hidden');
+            form.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
